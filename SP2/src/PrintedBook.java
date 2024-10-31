@@ -4,6 +4,7 @@ public class PrintedBook extends Title{
 
     public PrintedBook(String title, String literatureType, int copies, int pages) {
         super(title, literatureType, copies);
+        this.pages = pages;
     }
 
     @Override
@@ -13,9 +14,19 @@ public class PrintedBook extends Title{
 
     @Override
     double calculateLiteraturePoints() {
-
-        switch ()
-
-        return 0;
+        switch (getLiteratureType()){
+            case "BI":
+                return 3;
+            case "TE":
+                return 3;
+            case "LYRIK":
+                return 6;
+            case "SKØN":
+                return 1.7;
+            case "FAG":
+                return 1;
+            default:
+                return 0;
+        }
     }
 }

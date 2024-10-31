@@ -4,19 +4,30 @@ public class AudioBook extends Title {
 
     public AudioBook(String title, String literatureType, int copies, int durationInMinutes){
         super(title,literatureType,copies);
-
+        this.durationInMinutes = durationInMinutes;
 
     }
 
     @Override
     double calculatePoints() {
-
-
-        return 0;
+        return (durationInMinutes * 0.5) * calculateLiteraturePoints() * copies;
     }
 
     @Override
     double calculateLiteraturePoints() {
-        return 0;
+        switch (getLiteratureType()){
+            case "BI":
+                return 1.5;
+            case "TE":
+                return 1.5;
+            case "LYRIK":
+                return 3;
+            case "SKØN":
+                return 0.85;
+            case "FAG":
+                return 0.5;
+            default:
+                return 0;
+        }
     }
 }
